@@ -1,0 +1,45 @@
+header {
+
+    .container {
+        padding-top: 12px;
+    }
+
+    .header-text {
+        display: grid;
+        grid-template-columns: 1fr auto;
+
+
+        a {
+            margin-left: 2em;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-left: 1px solid #606966;
+            border-right: 1px solid #606966;
+            color: var(--color-light);
+        }
+    }
+
+
+
+    .navbar {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        nav {
+            a {
+                margin-left: 20px;
+                color: var(--color-primary);
+                font-weight: 600;
+                text-decoration: none;
+
+                &:hover {
+                    font-weight: 700;
+                    transition: 0.25s;
+                }
+            }
+        }
+    }
+}

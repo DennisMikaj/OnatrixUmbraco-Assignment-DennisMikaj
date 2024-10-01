@@ -1,0 +1,33 @@
+﻿@{
+	Layout = "mainLayout.cshtml";
+}
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model?.Value("pageTitle") ?? null;
+}
+@if (!string.IsNullOrEmpty(ViewBag.Title)) {
+	@await Html.PartialAsync("partials/static/breadcrumb.cshtml")
+}
+<section id="service-details">
+	<div class="container">
+		<div class="aside">
+				<div class="about-us">
+					<h4>About us</h4>
+					<img src="/images/about-us.png"/>
+					<p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+				</div>
+                <div class="online-support">
+                <h4>How can we help you?</h4>
+                <p>online support 24/7, we are here to help you</p>
+                <input type="email" placeholder="Email address">
+                <i class="fa-regular fa-envelope"></i>
+            </div>
+            </div>
+		<div class="content">
+		@Model.Value("pageContent")
+		</div>
+	</div>
+</section>

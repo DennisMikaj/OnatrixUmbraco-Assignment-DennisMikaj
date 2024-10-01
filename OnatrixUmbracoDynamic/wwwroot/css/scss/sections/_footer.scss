@@ -1,0 +1,11 @@
+footer {
+    .container {
+        display: grid;
+        margin-top: 1.5em;
+        grid-template-columns: auto;
+
+        .copyright {
+            display:flex;
+        }
+    }
+}

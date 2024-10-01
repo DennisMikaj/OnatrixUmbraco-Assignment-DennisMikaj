@@ -1,0 +1,63 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+@{
+	Layout = null;
+
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var siteName = settings?.Value<string>("siteName") ?? "Onatrix";
+    var siteTagline = settings?.Value<string>("siteTagline") ?? "Financial Solutions";
+
+	var pageTitle = !string.IsNullOrEmpty(ViewBag?.Title) ? $"{ViewBag?.Title} | {siteName}" : $"{siteName} - {siteTagline}";
+
+    var currentPath = Context.Request.Path.ToString().ToLower();
+
+    var excludePaths = new[] { "/contact/", "/" };
+
+    var isServiceSubPage = currentPath.StartsWith("/services/") && currentPath != "/services/";
+    var isHomePage = currentPath == "/";
+    }
+
+
+<!DOCTYPE html>
+ <html lang="sv-se">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3fb1dcbbf5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/scss/main.css?v=1.0">
+    <title>@pageTitle</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+		@await Html.PartialAsync("partials/static/topbar.cshtml")
+        @await Html.PartialAsync("partials/static/header.cshtml")
+        </header>
+		<main>
+			@RenderBody()
+
+            @if(isHomePage) {
+                @await Html.PartialAsync("partials/static/aboutUsForm.cshtml")
+            }
+
+            @if(isServiceSubPage) {
+                @await Html.PartialAsync("partials/static/messageForm.cshtml")
+            }
+            @if (!excludePaths.Contains(currentPath))
+            {
+                @await Html.PartialAsync("partials/static/officeInformation.cshtml")
+            }
+            
+            
+		</main>
+
+        <footer class="bg-dark">
+		@await Html.PartialAsync("partials/static/footer.cshtml")
+        </footer>
+	</div>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

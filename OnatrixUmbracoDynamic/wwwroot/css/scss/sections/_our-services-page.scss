@@ -1,0 +1,47 @@
+#our-services {
+    h2 {
+        margin-left:5em;
+        margin-right:5em;
+        margin-top: 1em;
+        text-align: center;
+    }
+
+    .services {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px;
+    }
+
+    .item {
+        text-align: left;
+        background: #FFFFFF;
+        border-radius: 8px;
+        border: 1px solid #EAEAEA;
+        margin: 20px;
+        padding-top: 20px;
+        overflow: hidden;
+    }
+
+    h4, p {
+        margin-left: 25px;
+    }
+
+    p {
+        margin-top: 20px;
+        color: #000000;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .item img {
+        transition: transform 0.25s ease-in-out;
+        display: block;
+        width: 100%;
+    }
+
+    .item:hover img {
+        transform: scale(1.08) rotate(0.8deg);
+    }
+}

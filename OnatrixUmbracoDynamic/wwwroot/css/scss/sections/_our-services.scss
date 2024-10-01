@@ -1,0 +1,23 @@
+#our-services-section {
+    position: relative;
+
+    .background {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+    }
+
+    h6 {
+        padding-top: 10em;
+    }
+
+    h2 {
+        padding-right: 3em;
+        padding-left: 3em;
+        margin-bottom: 2em;
+        margin-top: 1em;
+    }
+}

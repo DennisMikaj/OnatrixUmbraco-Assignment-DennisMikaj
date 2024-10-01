@@ -1,0 +1,62 @@
+#reviews-section {
+    position: relative;
+    margin-top: 2em;
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+    }
+
+    .container {
+        margin-top: 3em;
+        margin-left: 40em;
+
+        @media (max-width:2350px) {
+            margin-left: 35em;
+        }
+
+        @media (max-width:2200px) {
+            margin-left: 30em;
+        }
+
+        @media (max-width:2050px) {
+            margin-left: 25em;
+        }
+
+        @media (max-width:1900px) {
+            margin-left: 20em;
+        }
+    }
+
+    h6 {
+        padding-top: 2em;
+    }
+
+    .star-ratings {
+        width: 15%;
+        position: absolute;
+        left: -8em;
+        top: 1em;
+    }
+
+    .name {
+        color: #000000;
+    }
+
+    p {
+        width: 60%;
+        color: #999999;
+        font-style: italic;
+        margin-top: 1em;
+    }
+
+    img {
+        margin-left: 8em;
+        width: 90%;
+        display: block;
+    }
+}

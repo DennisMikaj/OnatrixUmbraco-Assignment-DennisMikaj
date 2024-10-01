@@ -1,0 +1,28 @@
+#hero-slider {
+
+    .background-image {
+        position: absolute;
+        z-index: -1;
+        justify-content: center;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 2em;
+    }
+
+    div {
+        
+        h1 {
+            padding-top: 2em;
+            margin-right: 9em;
+        }
+
+        p {
+            margin-right:35em;
+            padding-bottom: 4em;
+        }
+
+        a {
+            margin-bottom: 18em;
+        }
+    }
+}

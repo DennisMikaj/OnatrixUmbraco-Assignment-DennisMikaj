@@ -1,0 +1,55 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "";
+    var informationImage = settings?.Value<IPublishedContent>("informationImage").Url() ?? "";
+	var officePhoneNumber = settings?.Value<string>("officePhoneNumber") ?? "";
+	var officeEmailAddress = settings?.Value<string>("officeEmailAddress") ?? "";
+	var bgImage = settings?.Value<IPublishedContent>("bgImage").Url() ?? "";
+	var bgImageDots = settings?.Value<IPublishedContent>("bgImageDots").Url() ?? "";
+
+	var currentPath = Context.Request.Path.ToString().ToLower();
+
+    var excludePaths = "/contact/";
+
+}
+
+
+
+<section id="office-information">
+
+	@if (excludePaths.Contains(currentPath))
+            {
+                <div class="secondary-background-color"></div>
+            }
+	<div class="container">
+		<div class="container-item container-item-image">
+			<img class="top-img" src="@informationImage">
+			<img class="second-img" src="@bgImage">
+			<img class="bottom-img" src="@bgImageDots">
+		</div>
+		<div class="container-item information-text">
+			<h2>Let us know about your next project</h2>
+			<div class="office-information">
+				<i class="fa-solid fa-location-dot"></i>
+				<p class="p-title">Office location</p>
+				<p>@officeLocation</p>
+			</div>
+
+			<div class="office-information">
+				<i class="fa-solid fa-phone"></i>
+				<p class="p-title">Phone number</p>
+				<p>@officePhoneNumber</p>
+			</div>
+
+			<div class="office-information">
+				<i class="fa-solid fa-envelope"></i>
+				<p class="p-title">E-mail address</p>
+				<p>@officeEmailAddress</p>
+			</div>
+
+	</div>
+</section>

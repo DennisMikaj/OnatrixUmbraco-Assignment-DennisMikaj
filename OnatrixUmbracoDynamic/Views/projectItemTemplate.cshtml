@@ -1,0 +1,39 @@
+﻿@{
+	Layout = "mainLayout.cshtml";
+}
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model?.Value("pageTitle") ?? null;
+}
+@if (!string.IsNullOrEmpty(ViewBag.Title)) {
+	@await Html.PartialAsync("partials/static/breadcrumb.cshtml")
+}
+<section class="project-details">
+	<div class="container">
+		<div>
+		<p class="date"><i class="fa-regular fa-calendar-days"></i> @Model.Value("date")</p>
+		@Model.Value("pageContent")
+		</div>
+		 <div class="aside">
+                <div class="tags">
+                <h4>Tags</h4>
+                <a>Report</a>
+                <a>Business plans</a>
+                <a>Insights</a>
+                <a>Business</a>
+                <a>App</a>
+                <a>Finance</a>
+                </div>
+                
+                <div class="online-support">
+                <h4>How can we help you?</h4>
+                <p>online support 24/7, we are here to help you</p>
+                <input type="email" placeholder="Email address">
+                <i class="fa-regular fa-envelope"></i>
+            </div>
+            </div>
+	</div>
+</section>

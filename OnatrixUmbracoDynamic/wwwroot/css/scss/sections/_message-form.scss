@@ -1,0 +1,47 @@
+#message-form {
+    padding-bottom: 4em;
+
+    .success-message {
+        text-align: center;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+
+    .form-item-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-item-group-full {
+        grid-column: span 2;
+    }
+
+    .form-input {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #EBEBEB;
+    }
+
+    textarea.form-input {
+        min-height: 150px;
+    }
+
+    .btn-submit {
+        width: 150px;
+        align-self: start;
+    }
+
+    .form-input-error {
+        display: none;
+        font-size: 16px;
+        color: #dc3545;
+    }
+
+    .form-invalid-input {
+        display: block !important;
+    }
+}

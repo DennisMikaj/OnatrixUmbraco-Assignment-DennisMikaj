@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var containerTitle = Model?.Content.Value<string>("containerTitle") ?? "";
+    var containerTitleClass = containerTitle?.ToString().ToLower().Trim().Replace(" ", "-");
+
+}
+
+
+
+<div id="@containerTitleClass" class="container @containerTitleClass">
+    @await Html.GetBlockGridItemAreasHtmlAsync(Model!)
+</div>

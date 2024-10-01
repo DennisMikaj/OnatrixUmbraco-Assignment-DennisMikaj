@@ -1,0 +1,14 @@
+#partners {
+    padding-top: 8em;
+    padding-bottom: 6em;
+
+    .image-slider {
+        display: grid;
+        justify-content: center;
+
+
+        .slide-item {
+            margin: 30px;
+        }
+    }
+}

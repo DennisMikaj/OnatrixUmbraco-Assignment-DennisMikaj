@@ -1,0 +1,26 @@
+.pagination {
+    text-align: center;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        margin-top: 1em;
+
+
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin: 0;
+            padding-right: 30px;
+
+
+            li {
+                text-decoration: none;
+                list-style: none;
+                margin-right: 18px;
+                margin-left: 18px;
+                margin-bottom: 2em;
+            }
+        }
+    }
+}

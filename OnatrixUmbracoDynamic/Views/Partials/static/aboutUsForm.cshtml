@@ -1,0 +1,78 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+	bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+
+	bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+
+	bool.TryParse(ViewData["error_message"]?.ToString()!, out bool error_message);
+
+	bool.TryParse(ViewData["error_phone"]?.ToString()!, out bool error_phone);
+
+    var dropdownOptionOne = "Financial Consultion";
+    var dropdownOptionTwo = "Financial Consultion";
+    var dropdownOptionThree = "Financial Consultion";
+
+}
+
+
+<section id="about-form">
+    <div class="container">
+    <div>
+        <section id="message-form">
+        <div class="container">
+        @if (TempData["success"] == null) {
+			<div class="form-header">
+			<h2>Request a call back</h2>
+			</div>
+			<div>
+		      	<p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat</p>
+			</div>
+        	@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+			{
+			<div class="form-flex">
+			<div class="form-item-group">
+				<label class="form-label" for="name"></label>
+				<input id="name" name="name" type="text" placeholder="Name" class="form-input" value="@ViewData["name"]" />
+				<span class="form-input-error @((error_name) ? "form-invalid-input": null)">You must enter your name</span>
+			</div>
+
+			<div class="form-item-group">
+				<label class="form-label" for="email"></label>
+				<input id="email" name="email" type="email" placeholder="Email" class="form-input" value="@ViewData["email"]" />
+				<span class="form-input-error @((error_email) ? "form-invalid-input": null)">You must enter your Email</span>
+			</div>
+
+				<div class="form-item-group">
+				<label class="form-label" for="phone"></label>
+				<input id="phone" name="phone" type="text" placeholder="Phone" class="form-input" value="@ViewData["phone"]" />
+				<span class="form-input-error @((error_email) ? "form-invalid-input": null)">You must enter your Email</span>
+			</div>
+
+				<div class="dropdown form-item-group form-item-group-full">
+				<button id="dropdownButton" class="dropbtn">Dropdown</button>
+				<div class="dropdown-content">
+					<a href="#" class="dropdown-option" data-option="@dropdownOptionOne">@dropdownOptionOne</a>
+					<a href="#" class="dropdown-option" data-option="@dropdownOptionTwo">@dropdownOptionTwo</a>
+					<a href="#" class="dropdown-option" data-option="@dropdownOptionThree">@dropdownOptionThree</a>
+				</div>
+				</div>
+
+				
+
+			<div class="form-item-group form-item-group-full">
+				<button type="submit" class="form-button btn-primary btn-submit">Submit</button>
+			</div>
+		</div>
+			}
+		} else {
+			<div class="success-message">
+			<h2>Your message has been sent.</h2>
+			</div>
+		}
+    </div>
+</section>
+    </div>
+</section>
+
+<script src="/scripts/main.js"></script>

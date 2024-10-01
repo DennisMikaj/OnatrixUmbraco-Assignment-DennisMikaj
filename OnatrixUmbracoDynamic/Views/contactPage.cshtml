@@ -1,0 +1,62 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContactPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model.Value("pageTitle");
+	var imageSlider = Model.Value("layout");
+
+	bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+
+	bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+
+	bool.TryParse(ViewData["error_message"]?.ToString()!, out bool error_message);
+}
+@if (!string.IsNullOrEmpty(ViewBag.Title)) {
+	@await Html.PartialAsync("partials/static/breadcrumb.cshtml")
+}
+	@await Html.PartialAsync("partials/static/officeInformation.cshtml")
+
+
+<section id="contact-us">
+<div class="container">
+	
+		<h6>REQUEST A CALL BACK</h6>
+		<h2>Let us know about your next project</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur, ligula semper sagittis lobortis, eros metus efficitur purus</p>
+
+
+		@if (TempData["success"] != null)
+		{
+			<div class="success-message">@TempData["success"]</div>
+
+
+		}
+		else
+		{
+			@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+			{
+				@* <div class="form-item-group">
+					<label class="form-label" for="name">Name</label>
+					<input id="name" name="name" type="text" placeholder="Name" class="form-input" value="@ViewData["name"]" />
+					<span class="form-input-error @((error_name) ? "form-invalid-input": null)">You must enter your name</span>
+				</div>
+
+				<div class="form-item-group">
+					<label class="form-label" for="email">Email</label>
+					<input id="email" name="email" type="email" placeholder="Email" class="form-input" value="@ViewData["email"]" />
+					<span class="form-input-error @((error_email) ? " form-invalid-input": null)">You must enter your Email</span>
+				</div>
+
+				<div class="form-item-group">
+					<label class="form-label" for="message">Message</label>
+					<textarea id="message" name="message" placeholder="Message" class="form-input">@ViewData["message"]</textarea>
+					<span class="form-input-error @((error_message) ? " form-invalid-input": null)">You must enter your message</span>
+				</div>
+				<button type="submit" class="form-button btn-submit">Submit</button> *@
+				@Html.GetBlockListHtml(Model.ContactForm)
+			}
+		}
+@await Html.GetBlockGridHtmlAsync(Model!.Layout)
+</div>
+</section>

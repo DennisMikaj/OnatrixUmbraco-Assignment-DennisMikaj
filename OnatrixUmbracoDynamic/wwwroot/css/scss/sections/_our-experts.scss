@@ -1,0 +1,64 @@
+#our-experts-section {
+    position: relative;
+    margin-top: 5em;
+
+    h6 {
+        margin-top:3em;
+    }
+
+    .background {
+        background-color: #EAEAEA;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+    }
+ }
+#card-section {
+    margin-top: 3em;
+    display: grid;
+
+    .background {
+        background-color: #EAEAEA;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+    }
+
+    .employee-card {
+        text-align: left;
+        margin-right: 1em;
+        border: 1px solid #EAEAEA;
+        margin-top: 2em;
+        background-color: #FFFFFF;
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+        height: 88%;
+
+        img {
+            width: 100%;
+        }
+
+        h5, p {
+            margin-left: 1em;
+        }
+
+        p {
+            padding-bottom: 0.5em;
+        }
+
+
+        h5 {
+            margin-top: 1em;
+        }
+
+        .text-under-image {
+        }
+    }
+}
+    

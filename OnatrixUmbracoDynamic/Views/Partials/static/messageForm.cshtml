@@ -1,0 +1,59 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+	bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+
+	bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+
+	bool.TryParse(ViewData["error_message"]?.ToString()!, out bool error_message);
+}
+
+<section id="message-form">
+    <div class="container">
+        @if (TempData["success"] == null) {
+			<h2>Have a question?</h2>
+        	@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+			{
+			<div class="form-grid">
+			<div class="form-item-group">
+				<label class="form-label" for="name"></label>
+				<input id="name" name="name" type="text" placeholder="Name" class="form-input" value="@ViewData["name"]" />
+				<span class="form-input-error @((error_name) ? "form-invalid-input": null)">You must enter your name</span>
+			</div>
+
+			<div class="form-item-group">
+				<label class="form-label" for="email"></label>
+				<input id="email" name="email" type="email" placeholder="Email" class="form-input" value="@ViewData["email"]" />
+				<span class="form-input-error @((error_email) ? "form-invalid-input": null)">You must enter your Email</span>
+			</div>
+
+			<div class="form-item-group form-item-group-full">
+				<label class="form-label" for="message"></label>
+				<textarea id="message" name="message" placeholder="Message" class="form-input">@ViewData["message"]</textarea>
+				<span class="form-input-error @((error_message) ? "form-invalid-input": null)">You must enter your message</span>
+			</div>
+
+			<div class="form-item-group form-item-group-full">
+				<button type="submit" class="form-button btn-primary btn-submit">Submit</button>
+			</div>
+		</div>
+			}
+		} else {
+			<div class="success-message">
+			<h2>Your message has been sent.</h2>
+			</div>
+		}
+    </div>
+</section>
+
+@if (TempData["success"] != null || TempData["failed"] != null)
+{
+    <script>
+        window.onload = function() {
+            const formElement = document.getElementById('message-form');
+            if (formElement) {
+                formElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+    </script>
+}

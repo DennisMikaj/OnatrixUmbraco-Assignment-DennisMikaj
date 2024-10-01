@@ -1,0 +1,180 @@
+#our-projects {
+    margin-top: 3em;
+
+
+    a {
+        text-decoration: none;
+        color: #535656;
+    }
+
+    .container {
+        display: flex;
+
+        .aside {
+            margin-left: 3em;
+            margin-top: 3em;
+        }
+
+        .tags {
+
+
+            a {
+                border: 1px solid #E6E6E6;
+                border-radius:25px;
+                padding:1em;
+                margin:3px;
+            }
+        }
+
+        .online-support {
+            margin-top: 4em;
+            padding: 1em;
+            width: 300px;
+            height: 200px;
+            border-radius:4px;
+            background-color: #4F5955;
+            position: relative;
+            background-image: url("/images/Icon.png");
+
+            h4 {
+                color: #F2EDDC;
+            }
+
+            p {
+                color: #FFFFFF;
+            }
+
+            i {
+                position: absolute;
+                left: 6.5em;
+                top: 4em;
+                font-size: 35px;
+                pointer-events: none;
+                color: #555;
+            }
+
+            input {
+                margin-top: 1em;
+                border-radius: 5px;
+                width: 100%;
+                transition: 0.25s ease-in;
+                padding: 1em;
+                padding-left: 1em;
+                border: none;
+                
+
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid #EBEBEB;
+                    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5), 0 0 10px rgba(0, 123, 255, 0.3);
+                }
+            }
+        }
+    }
+
+    .services {
+        display: grid;
+        gap: 1em;
+        border-right: 1px solid #EBEBEB;
+
+        .item {
+            border-bottom: 1px solid #EBEBEB;
+            margin-right: 8em;
+            text-decoration: none;
+            display: flex;
+            margin-top: 2em;
+
+            img {
+                display: block;
+                position: relative;
+                margin-right: 2em;
+                margin-bottom: 2em;
+            }
+
+            .date {
+                color: #9C9EA6;
+
+                i {
+                    margin-right: 0.5em;
+                }
+            }
+        }
+    }
+}
+
+.project-details {
+    margin-top: 5em;
+
+    .aside {
+        margin-left: 5em;
+        margin-top: 3em;
+    }
+
+    .online-support {
+        margin-top: 4em;
+        padding: 1em;
+        width: 300px;
+        height: 200px;
+        border-radius: 4px;
+        background-color: #4F5955;
+        position: relative;
+        background-image: url("/images/Icon.png");
+
+        h4 {
+            color: #F2EDDC;
+        }
+
+        p {
+            color: #FFFFFF;
+        }
+
+        i {
+            position: absolute;
+            left: 6.5em;
+            top: 4em;
+            font-size: 35px;
+            pointer-events: none;
+            color: #555;
+        }
+
+        input {
+            margin-top: 1em;
+            border-radius: 5px;
+            width: 100%;
+            transition: 0.25s ease-in;
+            padding: 1em;
+            padding-left: 1em;
+            border: none;
+
+
+
+            &:focus {
+                outline: none;
+                border: 1px solid #EBEBEB;
+                box-shadow: 0 0 5px rgba(0, 123, 255, 0.5), 0 0 10px rgba(0, 123, 255, 0.3);
+            }
+        }
+    }
+
+    .tags {
+
+        a {
+            color: #535656;
+            text-decoration: none;
+            border: 1px solid #E6E6E6;
+            border-radius: 25px;
+            padding: 1em;
+            margin: 3px;
+        }
+    }
+
+    .container {
+        border-right: 1px solid #ECECEC;
+        display: flex;
+    }
+
+    .date {
+        color: #9C9EA6;
+    }
+}

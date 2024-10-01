@@ -1,0 +1,17 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+	var selection = Umbraco.Content(Guid.Parse("443357fd-2668-43c3-bb27-eb2abe301082"))
+    .ChildrenOfType("serviceItemTemplate")
+    .Where(x => x.IsVisible());
+    .Take(6);
+}
+<ul>
+	@foreach (var item in selection)
+	{
+		<li>
+			<a href="@item.Url()">@item.Name()</a>
+		</li>
+	}
+</ul>
+
